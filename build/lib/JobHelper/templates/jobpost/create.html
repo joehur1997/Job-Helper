@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Job{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post"> <!--why does this have to be lowercase is its referring to POST method?-->
+    <label for="jobtitle">Job Title</label>
+    <input name="jobtitle" id="jobtitle" value="{{ request.form['jobtitle'] }}" required>
+    <label for="jobURL">Job URL</label>
+    <textarea name="jobURL" id="jobURL">{{ request.form['jobURL'] }}</textarea>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

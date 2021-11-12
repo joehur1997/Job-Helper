@@ -1,0 +1,4 @@
+include JobHelper/schema.sql
+graft JobHelper/static
+graft JobHelper/templates
+global-exclude *.pyc

@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ jobPost['jobtitle'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="jobtitle">Job Title</label>
+    <input name="jobtitle" id="jobtitle"
+      value="{{ request.form['jobtitle'] or jobPost['jobtitle'] }}" required>
+    <label for="jobURL">Job URL</label>
+    <textarea name="jobURL" id="jobURL">{{ request.form['jobURL'] or jobPost['jobURL'] }}</textarea>
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="{{ url_for('jobpost.delete', id=jobPost['id']) }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}
+
+<!--mostly just holdover from the flaskr, !!UPDATE for status, interview, rejection etc...-->

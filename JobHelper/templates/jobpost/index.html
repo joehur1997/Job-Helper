@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}JobPosts{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('jobpost.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for jobPost in jobPosts %}
+    <article class="jobpost">
+      <header>
+        <div>
+          <h1>{{ jobPost['jobtitle'] }}</h1>
+          <div class="about">by {{ jobPost['username'] }} on {{ jobPost['applydate'].strftime('%Y-%m-%d') }}</div>
+        </div>
+        {% if g.user['id'] == jobPost['poster_id'] %} <!--If current user is same as post author, then can edit post,-->
+          <a class="action" href="{{ url_for('jobpost.update', id=jobPost['id']) }}">Edit</a> <!--goes to update view-->
+        {% endif %}
+      </header>
+      <p class="body">{{ jobPost['jobURL'] }}</p>
+    </article>
+    {% if not loop.last %} <!--if this NOT last iteration adds a line through code below through <hr>-->
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
