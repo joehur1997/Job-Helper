@@ -1,1 +1,2 @@
-web: waitress-serve --listen *:80 JobHelper:create_app
+work: set FLASK_APP=JobHelper
+web: flask run
