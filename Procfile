@@ -1,2 +1,1 @@
-work: set FLASK_APP=JobHelper
-web: flask run
+work: set FLASK_APP=JobHelper & web: flask run
