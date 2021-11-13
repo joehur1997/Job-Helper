@@ -1,1 +1,1 @@
-web: waitress-serve --call jobhelper:create_app
+web: waitress-serve --call JobHelper:create_app
