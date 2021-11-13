@@ -1,2 +1,1 @@
-set FLASK_APP = JobHelper
-flask run
+web: waitress-serve --port=$PORT JobHelper:create_app
