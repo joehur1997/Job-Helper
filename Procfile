@@ -1,1 +1,2 @@
-web: waitress-serve --call JobHelper:create_app
+set FLASK_APP = JobHelper
+flask run
