@@ -1,0 +1,1 @@
+web: waitress-serve JobHelper:create_app
