@@ -1,8 +1,7 @@
 import os
 from flask import Flask
 
-@staticmethod
-def create_app (): #app factory function - handles config, regis, and setup, then returns the app **READ MORE LATER
+def create_app (self): #app factory function - handles config, regis, and setup, then returns the app **READ MORE LATER
     #create and configure app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping( #sets some default config
