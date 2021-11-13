@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT JobHelper:create_app
+web: waitress-serve --call JobHelper:create_app
