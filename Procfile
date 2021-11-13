@@ -1,1 +1,1 @@
-web: waitress-serve --call JobHelper:create_app
+web: waitress-serve --listen *:80 JobHelper:create_app

@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 
-def create_app (test_config=None): #app factory function - handles config, regis, and setup, then returns the app **READ MORE LATER
+def create_app (): #app factory function - handles config, regis, and setup, then returns the app **READ MORE LATER
     #create and configure app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping( #sets some default config
@@ -9,12 +9,7 @@ def create_app (test_config=None): #app factory function - handles config, regis
         DATABASE=os.path.join(app.instance_path, 'JobHelper.sqlite'), #path where SQLite db will be saved and what file will be called
     )
 
-    if test_config is None:
-        # Load the instance config, if it exists, whennot testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        #Load the test config if passed in
-        app.config.from_mapping(test_config) #used instead of instance config
+    app.config.from_pyfile('config.py', silent=True)
     
     try:
         os.makedirs(app.instance_path) #ensures instance_path exists **FLASK doesnt create instance folder automatically!!!!
